@@ -56,6 +56,18 @@ class Exercise001Test extends AnyFlatSpec {
     assert(exercise001.countLinuxUsers(users) == 2)
   }
 
+  "Linux user counting" should "return the correct amount of linux users in example without any" in {
+
+    val users = Seq(
+      User("Heather", "Windows 10", "Windows"),
+      User("Paul", "Windows 95", "Windows"),
+      User("Sheila", "High Sierra", "Mac"),
+      User("Pedro", "Big Sur", "Mac")
+    )
+
+    assert(exercise001.countLinuxUsers(users) == 0)
+  }
+
   it should "return the correct amount of linux users when the collection is empty" in {
     val users = Seq()
     assert(exercise001.countLinuxUsers(users) == 0)

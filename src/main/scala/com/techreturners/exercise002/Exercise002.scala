@@ -1,9 +1,24 @@
 package com.techreturners.exercise002
 
-class Exercise002 {
+class Exercise002
+{
 
-  def isFromManchester(/*person: Person*/): Boolean = false
+  def isFromManchester(person: Person): Boolean =
+    {
+      if (person.city == "Manchester")
+      {
+        return true
+      }
+      false
+    }
 
-  def canWatchFilm(/*person: Person, ageLimit: Int */): Boolean = false
+  def canWatchFilm(person: Person, ageLimit: Int ): Boolean =
+  {
+    if (person.age > ageLimit)
+    {
+      return true
+    }
+    false
+  }
 
 }
