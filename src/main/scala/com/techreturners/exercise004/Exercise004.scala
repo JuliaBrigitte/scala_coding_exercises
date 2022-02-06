@@ -10,6 +10,7 @@ class Exercise004(var dateTime: LocalDateTime)
   // Try constructing a "LocalDateTime" from a "LocalDate"
   // You might need to default the time to be something like midnight
 
+  //take now as input if no input parameter
   def this() =
   {
     this(LocalDateTime.now())
@@ -20,12 +21,13 @@ class Exercise004(var dateTime: LocalDateTime)
     //convert LocalDate to LocalDateTime
     //var inputInstant=dateInput.atStartOfDay(ZoneId.systemDefault()).toInstant
     //var inputLocalDateTime=LocalDateTime.ofInstant(inputInstant,ZoneId.systemDefault())
+    //why could In not use inputLocalDateTime in next line?
     this(LocalDateTime.ofInstant(dateInput.atStartOfDay(ZoneId.systemDefault()).toInstant,ZoneId.systemDefault()))
   }
 
   def getDateTimeWithGigaSecond: LocalDateTime =
     {
-      dateTime.plusSeconds(1000000000)
+      dateTime.plusSeconds(1E9.toLong)
     }
 
 
