@@ -14,6 +14,10 @@ class Exercise004Test extends AnyFlatSpec{
     // val exercise004 = new Exercise004(LocalDate.of(2021, Month.JULY, 19))
     // assert(exercise004.getDateTimeWithGigaSecond == LocalDateTime.of(2053, Month.MARCH, 27, 1, 46, 40))
   }
+  it should "Goal of Exercise 4" in {
+    val exercise004 = new Exercise004(LocalDate.of(2021, Month.JULY, 19))
+    assert(exercise004.getDateTimeWithGigaSecond == LocalDateTime.of(2053, Month.MARCH, 27, 1, 46, 40))
+  }
 
   it should "be returned when constructed with a date and time" in {
     val exercise004 = new Exercise004(LocalDateTime.of(2021, Month.MARCH, 4, 23, 22, 0, 0))
@@ -23,5 +27,12 @@ class Exercise004Test extends AnyFlatSpec{
   it should "be returned when constructed with a date and time with day roll over" in {
     val exercise004 = new Exercise004(LocalDateTime.of(2021, Month.JANUARY, 24, 23, 59, 59, 0))
     assert(exercise004.getDateTimeWithGigaSecond == LocalDateTime.of(2052, Month.OCTOBER, 3, 1, 46, 39))
+  }
+
+  it should "be returned when constructed with a date and time that is empty (set to now)" in {
+    val exercise004 = new Exercise004()
+    val exercise004Now = new Exercise004(LocalDateTime.now())
+    //compare dates since some split seconds will have passed between nows might fail at midnight
+    assert(exercise004.getDateTimeWithGigaSecond.toLocalDate == exercise004Now.getDateTimeWithGigaSecond.toLocalDate)
   }
 }
