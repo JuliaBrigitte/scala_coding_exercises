@@ -29,19 +29,26 @@ class Exercise001
    */
   def countLinuxUsers(users: Seq[User]): Int =
   {
-    var count = 0
+    // my first attempt:
+    //    var count = 0
+    //    if (users != null)
+    //    {
+    //      users.foreach(user =>
+    //      {
+    //        if (user.osType == "Linux")
+    //        {
+    //          count = count + 1
+    //        }
+    //      }
+    //      )
+    //    }
+    //    count
+    //
     if (users != null)
-    {
-      users.foreach(user =>
       {
-        if (user.osType == "Linux")
-        {
-          count = count + 1
-        }
+        return users.count(_.osType == "Linux")
       }
-      )
+      0
     }
-    count
-  }
 
 }

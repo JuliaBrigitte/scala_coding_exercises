@@ -4,21 +4,13 @@ class Exercise002
 {
 
   def isFromManchester(person: Person): Boolean =
-    {
-      if (person.city == "Manchester")
-      {
-        return true
-      }
-      false
-    }
-
-  def canWatchFilm(person: Person, ageLimit: Int ): Boolean =
   {
-    if (person.age > ageLimit)
-    {
-      return true
-    }
-    false
+    person.city == "Manchester"
+  }
+
+  def canWatchFilm(person: Person, ageLimit: Int): Boolean =
+  {
+    person.age > ageLimit
   }
 
 }
