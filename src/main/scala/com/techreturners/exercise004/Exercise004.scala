@@ -1,3 +1,33 @@
+Skip to content
+Search or jump to…
+Pull requests
+  Issues
+Marketplace
+Explore
+
+@JuliaBrigitte
+JuliaBrigitte
+/
+scala_coding_exercises
+Public
+forked from techreturners/scala_coding_exercises
+Code
+Pull requests
+  Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+scala_coding_exercises/src/main/scala/com/techreturners/exercise004/Exercise004.scala
+@JuliaBrigitte
+JuliaBrigitte different/shorter solutions and code style pdf applied
+  Latest commit d3a670c 8 hours ago
+History
+2 contributors
+@JuliaBrigitte@eggsy84
+47 lines (38 sloc)  1.31 KB
+
 package com.techreturners.exercise004
 
 import java.time.{LocalDate, LocalDateTime, ZoneId}
@@ -25,23 +55,12 @@ class Exercise004(var dateTime: LocalDateTime)
   def this(dateInput: LocalDate) =
   {
     //convert LocalDate to LocalDateTime
-    //first working attempt:
-    //this(LocalDateTime.ofInstant(dateInput.atStartOfDay(ZoneId.systemDefault()).toInstant,ZoneId.systemDefault()))
-
-    //also works:
-    //this()
-    //val result=dateInput.atStartOfDay()
-    //this.dateTime=result
-    //or short:
-    //this.dateTime=dateInput.atStartOfDay()
-
-    //or even shorter
     this(dateInput.atStartOfDay());
   }
 
   def getDateTimeWithGigaSecond: LocalDateTime =
-    {
-      dateTime.plusSeconds(1E9.toLong)
-    }
+  {
+    dateTime.plusSeconds(1E9.toLong)
+  }
 
 }
