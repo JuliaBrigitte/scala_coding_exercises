@@ -14,7 +14,6 @@ class RomanNumerals
   {
     var result=""
     var number=numberPar
-
     //edge cases
     if (numberPar > 3000)
     {
@@ -39,7 +38,6 @@ class RomanNumerals
         }
       }
     }
-    //return the roman numeral
     result
   }
 
@@ -59,7 +57,6 @@ class RomanNumerals
           val multiplyWith = romanNumber.sliding(romanNumberString.length).count(_ == romanNumberString)
           result = result + multiplyWith * romanNumberValue
           romanNumber = romanNumber.replace(romanNumberString, "")
-          result = result + 0
         }
       }
     }
@@ -82,7 +79,6 @@ class RomanNumerals
     {
       result=0
     }
-    //return result
     result
   }
 }

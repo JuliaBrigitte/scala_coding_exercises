@@ -1,5 +1,4 @@
 package com.techreturners.bowling
-
 import scala.util.Try
 
 class Bowling
@@ -24,12 +23,7 @@ class Bowling
           {
             result=result + stroke.toInt
           }
-          else if ("/" == stroke)
-          {
-            result=result+10
-          }
-          //For strike X you need to add 10 and remember to add the score of the next two strokes to this
-          else if ("X" == stroke)
+          else if (("/" == stroke) || ("X" == stroke))
           {
             result=result+10
           }
@@ -41,12 +35,7 @@ class Bowling
           {
             result=result + stroke.toInt
           }
-          else if ("/" == stroke)
-          {
-            result=result+10
-          }
-          //For strike X you need to add 10 and remember to add the score of the next two strokes to this
-          else if ("X" == stroke)
+          else if (("/" == stroke) || ("X" == stroke))
           {
             result=result+10
           }
@@ -65,10 +54,6 @@ class Bowling
               result=result + stroke.toInt
             }
           }
-          else if ("-" == stroke)
-          {
-            //- is 0
-          }
           //For spare / you need to add 10 and remember to add the score of the next stroke to this
           else if ("/" == stroke)
           {
@@ -81,12 +66,9 @@ class Bowling
             result=result+10
             countNextTwoStrokes=true
           }
-
-
         }
       })
     })
-
     result
   }
 }
