@@ -2,7 +2,7 @@ package com.techreturners.romanNumerals
 
 import org.scalatest.flatspec.AnyFlatSpec
 
-class romanNumeralsTest extends AnyFlatSpec {
+class RomanNumeralsTest extends AnyFlatSpec {
 
   val romanNumerals = new RomanNumerals
 
