@@ -49,19 +49,20 @@ class RomanNumerals
     //first check for short cuts like IV
     var romanNumber=romanNumberPar
     var result = 0
-    romanNumeralsToNumbersShortcuts.foreach(romanNumberElement =>
+    romanNumeralsToNumbersShortcuts.foreach
     {
-      if (romanNumber.contains(romanNumberElement._1))
+      case (romanNumberString, romanNumberValue) =>
       {
-        //cut it out for the string and add to result
-        val romanNumberString=romanNumberElement._1
-        val multiplyWith=romanNumber.sliding(romanNumberString.length).count(_ == romanNumberString)
-        val romanNumberValue=romanNumberElement._2
-        result=result + multiplyWith * romanNumberValue
-        romanNumber=romanNumber.replace(romanNumberString, "")
-        result=result+0
+        if (romanNumber.contains(romanNumberString))
+        {
+          //cut it out for the string and add to result
+          val multiplyWith = romanNumber.sliding(romanNumberString.length).count(_ == romanNumberString)
+          result = result + multiplyWith * romanNumberValue
+          romanNumber = romanNumber.replace(romanNumberString, "")
+          result = result + 0
+        }
       }
-    })
+    }
     //check for the single char symbols
     romanNumeralsToNumbers.foreach(romanNumberElement =>
     {
