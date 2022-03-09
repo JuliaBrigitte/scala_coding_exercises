@@ -1,7 +1,13 @@
 package com.techreturners.marsRover
 
-class Coordinates
+class Coordinates(xVar: Int, yVar: Int)
 {
-  //x
-  //y
+  var x:Int =xVar;
+  var y:Int =yVar;
+
+  def move(dx: Int, dy: Int): Unit =
+  {
+    x=x+dx;
+    y=y+dy;
+  }
 }
