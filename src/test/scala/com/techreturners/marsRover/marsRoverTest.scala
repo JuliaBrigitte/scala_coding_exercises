@@ -31,27 +31,25 @@ class marsRoverTest extends AnyFlatSpec
 
   "Move along the grid" should "move by one and stop at edges" in
   {
-    coordinates.moveEast()
-    assert(coordinates.currentStatus() == "0,1");
-    coordinates.moveEast()
-    assert(coordinates.currentStatus() == "0,1");
-    coordinates.moveSouth()
-    assert(coordinates.currentStatus() == "0,0");
-    coordinates.moveSouth()
-    assert(coordinates.currentStatus() == "0,0");
     coordinates.moveWest()
+    assert(coordinates.currentStatus() == "0,1");
+    coordinates.moveSouth()
+    assert(coordinates.currentStatus() == "0,0");
+    coordinates.moveSouth()
+    assert(coordinates.currentStatus() == "0,0");
+    coordinates.moveEast()
     assert(coordinates.currentStatus() == "1,0");
-    coordinates.moveWest()
+    coordinates.moveEast()
     assert(coordinates.currentStatus() == "2,0");
-    coordinates.moveWest()
+    coordinates.moveEast()
     assert(coordinates.currentStatus() == "3,0");
-    coordinates.moveWest()
+    coordinates.moveEast()
     assert(coordinates.currentStatus() == "4,0");
-    coordinates.moveWest()
-    assert(coordinates.currentStatus() == "5,0");
-    coordinates.moveWest()
+    coordinates.moveEast()
     assert(coordinates.currentStatus() == "5,0");
     coordinates.moveEast()
+    assert(coordinates.currentStatus() == "5,0");
+    coordinates.moveWest()
     assert(coordinates.currentStatus() == "4,0");
     coordinates.moveNorth()
     assert(coordinates.currentStatus() == "4,1");
@@ -67,20 +65,43 @@ class marsRoverTest extends AnyFlatSpec
     assert(coordinates.currentStatus() == "4,5");
 
   }
-//  marsRover=new MarsRover([2,3,"N"]);
-//
-//"Mars Rover facing north" should "turn left to W then S then E in
-//{
-//  assert(marsRover.turnLeft().currentStatus() == "2,3,W");
-//  assert(marsRover.turnLeft().currentStatus() == "2,3,S");
-//  assert(marsRover.turnLeft().currentStatus() == "2,3,E");
-//}
-//"Mars Rover facing east" should "turn left to S then W then N in
-//{
-//  assert(marsRover.turnRight().currentStatus() == "2,3,S");
-//  assert(marsRover.turnRight().currentStatus() == "2,3,W");
-//  assert(marsRover.turnRight().currentStatus() == "2,3,N");
-//}
+
+  var coordinatesMarsRover=new Coordinates(2,3);
+  var directionMarsRover=new Direction('N')
+  var marsRover=new MarsRover(coordinatesMarsRover,directionMarsRover);
+
+"Mars Rover facing north" should "turn left to W then S then E" in
+{
+  marsRover.turnLeft()
+  assert(marsRover.currentStatus() == "2,3,W");
+  marsRover.turnLeft()
+  assert(marsRover.currentStatus() == "2,3,S");
+  marsRover.turnLeft()
+  assert(marsRover.currentStatus() == "2,3,E");
+}
+"Mars Rover facing east" should "turn left to S then W then N" in
+{
+  marsRover.turnRight()
+  assert(marsRover.currentStatus() == "2,3,S");
+  marsRover.turnRight()
+  assert(marsRover.currentStatus() == "2,3,W");
+  marsRover.turnRight()
+  assert(marsRover.currentStatus() == "2,3,N");
+  marsRover.turnRight()
+  assert(marsRover.currentStatus() == "2,3,E");
+}
+  "Mars Rover facing east" should "walk to end of grid and not fall off" in
+  {
+    marsRover.moveTo("M")
+    assert(marsRover.currentStatus() == "3,3,E");
+    marsRover.moveTo("M")
+    assert(marsRover.currentStatus() == "4,3,E");
+    marsRover.moveTo("M")
+    assert(marsRover.currentStatus() == "5,3,E");
+    marsRover.moveTo("M")
+    assert(marsRover.currentStatus() == "5,3,E");
+  }
+
 //    moveTo strings with 2,3,many
 //
 //    Edge cases.

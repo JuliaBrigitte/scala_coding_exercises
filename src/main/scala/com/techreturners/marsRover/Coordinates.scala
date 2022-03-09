@@ -29,9 +29,9 @@ class Coordinates(xVar: Int, yVar: Int)
 
   def moveEast(): Unit =
   {
-    if (0 < x)
+    if (maxGrid > x)
     {
-      move(-1,0)
+      move(1,0)
     }
   }
 
@@ -45,9 +45,9 @@ class Coordinates(xVar: Int, yVar: Int)
 
   def moveWest(): Unit =
   {
-    if (maxGrid > x)
+    if (0 < x)
     {
-      move(1,0)
+      move(-1,0)
     }
   }
 }
